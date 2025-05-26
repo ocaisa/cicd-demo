@@ -1,0 +1,20 @@
+name: Build with EasyBuild
+on: [push, pull_request]
+
+jobs:
+  ubuntu-minimal:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-24.04-arm
+          - ubuntu-24.04
+    steps:
+    - uses: actions/checkout@v4
+    - uses: eessi/github-action-eessi@v3
+    - name: Build with EESSI-extend
+      run: |
+        module load EESSI-extend
+        unset EASYBUILD_DEBUG
+        eb --logtostdout --software-commit=$GITHUB_SHA easybuild/cicd-demo.eb
+      shell: bash

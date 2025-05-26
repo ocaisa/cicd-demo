@@ -19,5 +19,6 @@ jobs:
         cd build
         export LD_RUN_PATH=$LIBRARY_PATH:$EBROOTGCCCORE/lib64
         cmake ..
+        make
         ctest --output-on-failure --verbose
       shell: bash

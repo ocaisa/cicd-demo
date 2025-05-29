@@ -16,7 +16,10 @@ jobs:
       run: |
         module load Python
         pip install --user archspec
-        archspec cpu
-        echo $EESSI_SOFTWARE_SUBDIR
+        echo "archspec says:  $(archspec cpu)"
+        echo "archdetect says: $EESSI_SOFTWARE_SUBDIR"
+        echo "lscpu says:"
         lscpu
+        echo "and /proc/cpuinfo says:"
+        cat /proc/cpuinfo
       shell: bash

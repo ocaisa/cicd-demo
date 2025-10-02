@@ -1,4 +1,4 @@
-name: Ubuntu Minimal EESSI Test
+name: Ubuntu Minimal EESSI Easyconfig Test
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: eessi/github-action-eessi@v3
-    - name: Test EESSI
+    - name: Test Easyconfig with EESSI
       run: |
         module load EESSI-extend
         eb easybuild/build.eb --software-commit=$GITHUB_SHA

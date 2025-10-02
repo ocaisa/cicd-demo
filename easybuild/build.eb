@@ -1,0 +1,33 @@
+easyblock = 'CMakeMake'
+
+name = 'CICD-demo'
+version = 'devel'
+versionsuffix = '-%(software_commit)s'
+
+homepage = 'https://github.com/ocaisa/cicd-demo'
+description = """Just a CICD demo"""
+
+toolchain = {'name': 'gompi', 'version': '2023b'}
+
+github_account = 'ocaisa'
+source_urls = ['https://github.com/%(github_account)s/%(namelower)s/archive/']
+
+sources = ['%(software_commit)s.tar.gz']
+
+builddependencies = [
+    ('CMake', '3.27.6'),
+]
+
+dependencies = [
+    ('HDF5', '1.14.3'),
+]
+
+runtest = True
+
+sanity_check_paths = {
+    'files': ['bin/hello_mpi_hdf5', 'bin/verify_hdf5'],
+    'dirs': [],
+}
+
+sanity_check_commands = ['hello_mpi_hdf5 --version']
+

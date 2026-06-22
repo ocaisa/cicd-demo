@@ -21,7 +21,7 @@ jobs:
       run: |
         module load CMake/4.0.3-GCCcore-14.3.0  
         module load HDF5/1.14.6-gompi-2025b  
-        module load buildenv/default-foss-2025b  
+        #  module load buildenv/default-foss-2025b  
         mkdir build
         cd build
         cmake ..  
